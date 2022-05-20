@@ -3,3 +3,6 @@
 -- Microsoft, MySQL --
 SELECT @@version 
 
+-- Oracle --
+SELECT * FROM v$version 
+
