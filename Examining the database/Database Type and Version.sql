@@ -6,3 +6,5 @@ SELECT @@version
 -- Oracle --
 SELECT * FROM v$version 
 
+--PostgreSQL --
+SELECT version() 
