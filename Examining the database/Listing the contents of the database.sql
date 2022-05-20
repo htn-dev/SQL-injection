@@ -7,3 +7,6 @@ SELECT * FROM information_schema.tables
 --  You can then query information_schema.columns to list the columns in individual tables:
 
 SELECT * FROM information_schema.columns WHERE table_name = 'Users'
+
+--example
+'+UNION+SELECT+column_name,+NULL+FROM+information_schema.columns+WHERE+table_name='users_cgcmou'-- 
