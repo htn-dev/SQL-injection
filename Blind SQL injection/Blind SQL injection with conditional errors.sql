@@ -66,3 +66,7 @@ TrackingId=xyz'||(SELECT CASE WHEN SUBSTR(password,1,1)='§a§' THEN TO_CHAR(1/0
 
 --Now, you simply need to re-run the attack for each of the other character positions in the password, to determine their value. To do this, go back to the main Burp window, and the Positions tab of Burp Intruder, and change the specified offset from 1 to 2. You should then see the following as the cookie value: 
 TrackingId=xyz'||(SELECT CASE WHEN SUBSTR(password,2,1)='§a§' THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'
+
+-- Launch the modified attack, review the results, and note the character at the second offset.
+--Continue this process testing offset 3, 4, and so on, until you have the whole password.
+--In the browser, click "My account" to open the login page. Use the password to log in as the administrator user. 
