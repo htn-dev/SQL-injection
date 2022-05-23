@@ -22,3 +22,8 @@ TrackingId=xyz'||(SELECT '' FROM dual)||'
 TrackingId=xyz'||(SELECT '' FROM not-a-real-table)||'
 
 --This time, an error is returned. This behavior strongly suggests that your injection is being processed as a SQL query by the back-end. 
+
+--As long as you make sure to always inject syntactically valid SQL queries, you can use this error response to infer key information about the database. For example, in order to verify that the users table exists, send the following query:
+TrackingId=xyz'||(SELECT '' FROM users WHERE ROWNUM = 1)||'
+
+--As this query does not return an error, you can infer that this table does exist. Note that the WHERE ROWNUM = 1 condition is important here to prevent the query from returning more than one row, which would break our concatenation.
