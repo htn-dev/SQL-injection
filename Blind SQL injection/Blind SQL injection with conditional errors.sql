@@ -11,3 +11,7 @@ TrackingId=xyz''
 --You now need to confirm that the server is interpreting the injection as a SQL query i.e. that the error is a SQL syntax error as opposed to any other kind of error. To do this, you first need to construct a subquery using valid SQL syntax. Try submitting:
 
 TrackingId=xyz'||(SELECT '')||'
+
+--In this case, notice that the query still appears to be invalid. This may be due to the database type - try specifying a predictable table name in the query:
+
+TrackingId=xyz'||(SELECT '' FROM dual)||'
