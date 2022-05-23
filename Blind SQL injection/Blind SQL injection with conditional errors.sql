@@ -15,3 +15,10 @@ TrackingId=xyz'||(SELECT '')||'
 --In this case, notice that the query still appears to be invalid. This may be due to the database type - try specifying a predictable table name in the query:
 
 TrackingId=xyz'||(SELECT '' FROM dual)||'
+
+--As you no longer receive an error, this indicates that the target is probably using an Oracle database, which requires all SELECT statements to explicitly specify a table name.
+--Now that you've crafted what appears to be a valid query, try submitting an invalid query while still preserving valid SQL syntax. For example, try querying a non-existent table name:
+
+TrackingId=xyz'||(SELECT '' FROM not-a-real-table)||'
+
+--This time, an error is returned. This behavior strongly suggests that your injection is being processed as a SQL query by the back-end. 
