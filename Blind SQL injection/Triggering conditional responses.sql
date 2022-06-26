@@ -1,5 +1,5 @@
 --Visit the front page of the shop, and use Burp Suite to intercept and modify the request containing the TrackingId cookie. For simplicity, let's say the original value of the cookie is TrackingId=xyz.
-  
+   
 --Modify the TrackingId cookie, changing it to:
 TrackingId=xyz' AND '1'='1
 
